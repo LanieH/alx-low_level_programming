@@ -7,7 +7,7 @@
  *
  * Description: prints the value of n if greater than, is zero or less than
  *
- * Return: 0 always
+ * Return: Always 0 (Successful)
  */
 int main(void)
 {
