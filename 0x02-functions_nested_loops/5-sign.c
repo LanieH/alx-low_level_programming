@@ -1,22 +1,28 @@
-#include "main.h"
+#include"main.h"
 
 /**
- * main - check the code.
+ * print_sign - prints the sign of numbers
  *
- * Return: Always 0.
+ * @n: takes integer type input for function
+ *
+ * Return: 1 if is positive and 0 if 0 and -1
  */
-int main(void)
-{
-	int r;
 
-	r = _isalpha('H');
-	_putchar(r + '0');
-	r = _isalpha('o');
-	_putchar(r + '0');
-	r = _isalpha(108);
-	_putchar(r + '0');
-	r = _isalpha(';');
-	_putchar(r + '0');
-	_putchar('\n');
-	return (0);
+int print_sign(int n)
+{
+	if (n > 0)
+	{
+		_putchar(43 + 0);
+		return (1);
+	}
+	else if (n == 0)
+	{
+		_putchar(0 + 48);
+		return (0);
+	}
+	else
+	{
+		_putchar(45 + 0);
+		return (-1);
+	}
 }
