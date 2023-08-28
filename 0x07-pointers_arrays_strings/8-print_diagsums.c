@@ -17,10 +17,12 @@ void print_diagsums(int *a, int size)
 		j = (i * size) + i;
 		diagsum1 += a[j];
 	}
+
 	for (i = 0; i <= size; i++)
 	{
 		j = (i * size) - i;
 		diagsum2 += a[j];
 	}
+
 	printf("%d, %d\n", diagsum1, diagsum2);
 }
