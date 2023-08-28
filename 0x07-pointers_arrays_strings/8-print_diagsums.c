@@ -10,19 +10,15 @@ void print_diagsums(int *a, int size)
 {
 	int diagsum1 = 0;
 	int diagsum2 = 0;
-	int i, j;
+	int i;
 
 	for (i = 0; i < size; i++)
 	{
-		j = (i * size) + i;
-		diagsum1 += a[j];
+		diagsum1 = diagsum1 + a[i * size + i];
 	}
-
-	for (i = 0; i <= size; i++)
+	for (i = size - 1; i >= 0; i--)
 	{
-		j = (i * size) - i;
-		diagsum2 += a[j];
+		diagsum2 += a[i * size + (size - i - 1)];
 	}
-
 	printf("%d, %d\n", diagsum1, diagsum2);
 }
