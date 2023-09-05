@@ -1,37 +1,48 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * argstostr - main entry
- * @ac: int input
- * @av: double pointer array
+ * argstostr - it concatenates all arguments to the program
+ * @ac: number of args
+ * @av: args to concatenate
  * Return: On success, pointer to the string, on failure, NULL
  */
 char *argstostr(int ac, char **av)
 {
-	int i, n, r = 0, l = 0;
-	char *str;
+	char *concat;
+	int a, b, j, k, count = 0;
 
-	if (ac == 0 || av == NULL)
+	if (ac == 0)
 		return (NULL);
 
-	for (i = 0; i < ac; i++)
-	{
-		for (n = 0; av[i][n]; n++)
-			l++;
-	}
-	l += ac;
-
-	str = malloc(sizeof(char) * l + 1);
-	if (str == NULL)
+	if (av == 0)
 		return (NULL);
-	for (i = 0; i < ac; i++)
+
+	for (a = 0; a < ac; a++) /* validate number of args */
 	{
-		str[r] = av[i][n];
-		r++;
+		for (b = 0; av[a][b] != '\0'; b++)
+		{
+			count++;
+		}
+		count++;
 	}
-	if (str[r] == '\0')
+	count++;
+
+	concat = malloc(count * sizeof(char));
+	if (concat == NULL)
+		return (NULL);
+
+	i = 0, k = 0;
+	while (i < ac)
 	{
-		str[r++] = '\n';
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+			concat[k] = av[i][j];
+			k++;
+		}
+		concat[k] = '\n';
+		k++, i++;
 	}
-	return (str);
+
+	concat[k] = '\0'; /* add ull character to end of string */
+	return (concat);
 }
