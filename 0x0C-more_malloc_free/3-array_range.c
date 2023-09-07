@@ -4,11 +4,12 @@
 /**
  * array_range - creates ann array of integers
  *
- * @min: smallest value in the array
- * @max: largest value in the array
+ * @min: minimum value.
+ * @max: maximum value.
  *
- * Return: On success, pointer to allocated memory, NULL if
- * min > max || if malloc fails
+ * Return: pointer to the newly created array.
+ * min > max, returns NULL.
+ * if malloc fails, returns NULL.
  */
 
 int *array_range(int min, int max)
