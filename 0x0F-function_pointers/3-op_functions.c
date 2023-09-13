@@ -59,7 +59,7 @@ int op_div(int a, int b)
  */
 int op_mod(int a, int b)
 {
-i	if (b == 0)
+	if (b == 0)
 	{
 		printf("Error\n");
 		exit(100);
