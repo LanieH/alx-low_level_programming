@@ -1,4 +1,6 @@
 #include "3-calc.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 int op_add(int a, int b);
 int op_sub(int a, int b);
@@ -20,7 +22,7 @@ int op_add(int a, int b)
 
 /**
  * op_sub - Returns the difference of two numbers.
- * @a: First number.
+ * @a: First numbe`zzr.
  * @b: Second number.
  *
  * Return: Difference of a and b.
