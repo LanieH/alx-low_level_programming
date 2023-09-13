@@ -4,10 +4,12 @@
 
 /**
  * main - performs calc operation on any two given integers
- * @argc: number of args
+ * @argc: number of args supplied to the program
  * @argv: args array
+ *
  * Return: Always 0
  */
+
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	int num1, num2;
@@ -37,7 +39,5 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 	}
 
 	printf("%d\n", get_op_func(op)(num1, num2));
-
 	return (0);
 }
-
