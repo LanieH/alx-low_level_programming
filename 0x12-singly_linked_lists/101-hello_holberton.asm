@@ -1,5 +1,6 @@
 section .data
-	format db 'Hello, Holberton',0
+	format db 'Hello, %s, 0
+	name db 'Holberton', 0
 
 section .text
 	global main
