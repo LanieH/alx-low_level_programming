@@ -28,7 +28,7 @@ size_t print_listint_safe(const listint_t *head)
 			}
 		}
 
-		prev_node[node_count] = current;
+		prev_nodes[node_count] = current;
 		printf("[%p] %d\n", (void *) current, current->n);
 		node_count++;
 
