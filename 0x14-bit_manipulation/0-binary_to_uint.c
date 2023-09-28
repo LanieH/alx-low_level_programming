@@ -2,7 +2,7 @@
 #include <stddef.h>
 
 /**
- * binary_to_unit - converts a binary number to unsigned
+ * binary_to_unit - Converts a binary number to unsignedi int.
  * @b: A string that contains binary number
  *
  * Return: Converted number, or 0 if invalid input.
@@ -22,5 +22,6 @@ unsigned int binary_to_uint(const char *b)
 		result = (result << 1) | (*b - '0');
 		b++;
 	}
+
 	return (result);
 }
