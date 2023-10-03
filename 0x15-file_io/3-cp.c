@@ -49,7 +49,7 @@ void close_file(int fd)
  *
  * Return: 0 on success, or error code on failure.
  */
- 
+
 int main(int argc, char *argv[])
 {
 	int from, to, r, w;
