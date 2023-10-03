@@ -6,23 +6,23 @@ char *creat_buf(char *file);
 void close_file(int fd);
 
 /**
- * create_buf - assigns 1024 bytes for a buffer
+ * create_buffer - assigns 1024 bytes for a buffer
  * @file: Name of the file buffer
- * Return: A pointe to the newly assigned buffer
+ * Return: A pointer to the newly assigned buffer
  */
-char *create_buf(cahr *file)
+char *create_buffer(cahr *file)
 {
-	char *buf;
+	char *buffer;
 
-	buf = malloc(sizeof(char) * 1024);
+	buffer = malloc(sizeof(char) * 1024);
 
-	if (!buf)
+	if (!buffer)
 	{
 		dprintf(STDERR_FILENO,
 			"Error: Can't write to %s\n", file);
 		exit(99);
 	}
-	return (buf);
+	return (buffer);
 }
 
 /**
@@ -48,6 +48,11 @@ void close_file(int fd)
  * @argv: arg vector.
  *
  * Return: 0 on success, or error code on failure.
+ *
+ * Decription: If argument count is incorrect - exit code 97.
+ * If file_from does not read or exist - exit 98.
+ * If file_to can't be created or written to - exit code 99.
+ * If file_to or file_from can't be closed - exit code 100.
  */
 int main(int argc, char *argv[])
 {
@@ -60,9 +65,9 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	buf = creat_buf(argv[2]);
+	buffer = creat_buffer(argv[2]);
 	from = open(argv[1], O_RDONLY);
-	r = read(from, buf, 1024);
+	r = read(from, buffer, 1024);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	do {
@@ -70,25 +75,25 @@ int main(int argc, char *argv[])
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't read from file %s\n", argv[1]);
-			free(buf);
+			free(buffer);
 			exit(98);
 		}
 
-		w = write(to, buf, r);
+		w = write(to, buffer, r);
 		if (to == -1 || w == -1)
 		{
 			dprintf(STDERR_FILENO,
 				"Error: Can't write to %s\n", argv[2]);
-			free(buf);
+			free(buffer);
 			exit(99);
 		}
 
-		r = read(from, buf, 1024);
+		r = read(from, buffer, 1024);
 		to = open(argv[2], O_WRONLY | O_APPEND);
 
 	} while (r > 0);
 
-	free(buf);
+	free(buffer);
 	close_file(from);
 	close_file(to);
 
